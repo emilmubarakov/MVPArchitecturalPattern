@@ -41,7 +41,14 @@ class UserPresenter {
     }
     
     public func didTap(user: User) {
-        delegate?.presentAlert(title: user.name,
-                               message: "\(user.name) has an email of \(user.email) & a username of \(user.username)")
+//        delegate?.presentAlert(title: user.name,
+//                               message: "\(user.name) has an email of \(user.email) & a username of \(user.username)")
+        
+        let title = user.name
+        let message = "\(user.name) has an email of \(user.email) & a username of \(user.username)"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        delegate?.present(alert, animated: true)
     }
 }
